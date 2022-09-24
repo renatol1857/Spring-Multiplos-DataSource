@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.example.demo.repositories.app", entityManagerFactoryRef = "appEMFactory")
+@EnableJpaRepositories(basePackages="com.example.demo.repositories.app", entityManagerFactoryRef = "appEMFactory")
 public class AppDbConfig {
 
 	@Bean
@@ -26,6 +26,7 @@ public class AppDbConfig {
 	@Bean
 	@Primary
 	public LocalContainerEntityManagerFactoryBean appEMFactory(EntityManagerFactoryBuilder builder, @Qualifier("appDataSource") DataSource ds) {
+		System.out.println("AppDbConfig.appEMFactory");
 		return builder.dataSource(ds).packages("com.example.demo.model.app").build();
 		 
 	}
