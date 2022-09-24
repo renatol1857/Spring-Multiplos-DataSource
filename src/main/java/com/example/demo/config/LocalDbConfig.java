@@ -13,8 +13,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
+import com.example.demo.repositories.local.UsuarioRepository;
+
 @Configuration
-@EnableJpaRepositories(entityManagerFactoryRef = "localEMFactory", basePackages = "com.example.demo.repositories.local")
+@EnableJpaRepositories(entityManagerFactoryRef = "localEMFactory", basePackageClasses = UsuarioRepository.class)
 public class LocalDbConfig {
 	
 	@Bean

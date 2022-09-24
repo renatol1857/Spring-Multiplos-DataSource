@@ -27,11 +27,15 @@ public class LivroController {
 	
 	@PostMapping
 	public ResponseEntity<Object> salvarLivro(@RequestBody Livro livro) {
+		System.out.println("salvarLivro");
 		try {
 			Livro livro2 = livroService.criar(livro);
 			return ResponseEntity.status(HttpStatus.CREATED).body(livro2);
 		} catch (IllegalArgumentException e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-		}
+		} catch (Exception e) {
+				return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+			}
+		
 	}
 }
