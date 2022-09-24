@@ -29,10 +29,9 @@ public class LivroController {
 	public ResponseEntity<Object> salvarLivro(@RequestBody Livro livro) {
 		System.out.println("salvarLivro");
 		try {
-			Livro livro2 = livroService.criar(livro);
-			return ResponseEntity.status(HttpStatus.CREATED).body(livro2);
+			return ResponseEntity.status(HttpStatus.CREATED).body(livroService.criar(livro));
 		} catch (IllegalArgumentException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		} catch (Exception e) {
 				return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
 			}

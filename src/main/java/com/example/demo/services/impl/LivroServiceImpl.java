@@ -27,9 +27,9 @@ public class LivroServiceImpl implements LivroService {
 	@Override
 	public Livro criar(Livro livro) {
 		System.out.println("LivroServiceImpl.criar");
-		 //Usuario usuario = usuarioRepository.findById(livro.getCodUsuario()).orElseThrow(() -> new IllegalArgumentException("Usuario nao encontrado."));
-		 //livro.setNomeUsuario(usuario.getNome());
-		 livro.setNomeUsuario("Renato");
+		 Usuario usuario = usuarioRepository.findById(livro.getCodUsuario()).orElseThrow(() -> new IllegalArgumentException("Usuario nao encontrado."));
+		 livro.setNomeUsuario(usuario.getNome());
+		 //livro.setNomeUsuario("Renato");
 		 return livroRepository.save(livro);
 		 }
 

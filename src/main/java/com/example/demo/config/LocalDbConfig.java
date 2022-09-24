@@ -1,7 +1,5 @@
 package com.example.demo.config;
 
-
-
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,11 +18,12 @@ public class LocalDbConfig {
 	@Bean
 	@ConfigurationProperties(prefix = "local.datasource")
 	public DataSource localDataSource() {
+		System.out.println("LocalDbConfig.localDataSource");
 		return DataSourceBuilder.create().build();
 	}
 
 	@Bean
-	public LocalContainerEntityManagerFactoryBean localEMFactory(EntityManagerFactoryBuilder builder, @Qualifier("localDataSource")  DataSource ds) {
+	public LocalContainerEntityManagerFactoryBean localEMFactory(EntityManagerFactoryBuilder builder, @Qualifier("localDataSource") DataSource ds) {
 		System.out.println("LocalDbConfig.localEMFactory");
 		return builder.dataSource(ds).packages("com.example.demo.model.local").build();
 	}
