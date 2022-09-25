@@ -22,10 +22,10 @@ public class MultiplosDbApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Usuario usuario = new Usuario("Renato2", "renato2@gmail.com", "12345");
+		Usuario usuario = new Usuario("Renato", "renato@gmail.com", "12345");
 		
 		
-		// usuarioService.criar(usuario);
+		usuarioService.criar(usuario);
 		
 	}
 
