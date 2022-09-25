@@ -25,7 +25,7 @@ public class MultiplosDbApplication implements CommandLineRunner {
 		Usuario usuario = new Usuario("Renato2", "renato2@gmail.com", "12345");
 		
 		
-		usuarioService.criar(usuario);
+		// usuarioService.criar(usuario);
 		
 	}
 
